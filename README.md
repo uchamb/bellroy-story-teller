@@ -1,8 +1,9 @@
 # bellroy-story-teller
-This is a test app created for Bellroy.com
+* This is a test app created for Bellroy.com
 
 # Installation
-Download and run index.html in your browser
+* Download and run index.html in your browser
+* Requires ES6
 
 # How to play
 * Use arrow keys to move / rotate robot in any direction
@@ -10,4 +11,4 @@ Download and run index.html in your browser
 * You can't make a next move until the robot is stopped
 
 # Known issues
-This app is created for desktop only. But you can still play with your smartphone
+* This app is created for desktop only. But you can still play with your smartphone

@@ -1,0 +1,238 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+}
+
+.score {
+  display: flex;
+  justify-content: center;
+  font-size: 32px;
+  padding-bottom: 16px;
+}
+
+.score.bounce {
+  animation: bounce 1s ease-in-out forwards;
+}
+
+.game-wrapper {
+  position: relative;
+}
+
+.game-wrapper .final {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 600px;
+  height: 600px;
+  object-fit: contain;
+  transform: scale(0);
+}
+
+body {
+  background: #fff;
+  transition: background-color .5s;
+}
+
+body.final {
+  background: #e7e4de;
+}
+
+body.final .game-wrapper .final {
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+#board {
+  width: 602px;
+  height: 602px;
+  border: 1px solid #e15a1d;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  transition: all .5s;
+  transform: scale(1);
+}
+
+#board.hidden {
+  transform: scale(0);
+}
+
+#board .cell {
+  border: 1px solid #e15a1d;
+  width: 120px;
+  height: 120px;
+  position: relative;
+}
+
+#board .cell img {
+  width: 95%;
+  height: 95%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  object-fit: contain;
+}
+
+#board .cell img.animate {
+  animation: fadeOut 1s ease-in-out forwards;
+}
+
+#board .logo {
+  position: absolute;
+  right: 0;
+  bottom: 601px;
+  width: 55px;
+}
+
+.arrows {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+  opacity: 1;
+  transition: opacity .3s;
+}
+
+body.final .arrows {
+  opacity: 0;
+}
+
+.arrows > div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.arrows button {
+  width: 50px;
+  height: 30px;
+  background-size: 35%;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 4px;
+  cursor: pointer;
+  transition: opacity .15s;
+  border: 0;
+
+  background-color: #e15a1d;
+  color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 27px 15px -17px rgba(0, 0, 0, .3), 0 2px 4px rgba(0, 0, 0, .3);
+}
+
+.arrows button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.arrows button:active,
+.arrows button.active {
+  opacity: 0.5;
+}
+
+.arrows button:disabled:active,
+.arrows button:disabled.active {
+  opacity: 0.3;
+}
+
+.arrows button.left { background-image: url(../img/left.png); }
+.arrows button.up { background-image: url(../img/up.png); }
+.arrows button.right { background-image: url(../img/right.png); }
+.arrows button.down { background-image: url(../img/down.png); }
+
+.robot {
+  display: none;
+  position: absolute;
+  width: 88px;
+  height: 104px;
+  background: url(../img/robot.png) no-repeat center;
+  background-size: 100%;
+  left: 0;
+  top: 0;
+  transform-origin: 50% 50%;
+  transition: all 1.5s;
+  z-index: 30;
+}
+
+.robot .head {
+  position: absolute;
+  width: 36px;
+  height: 20px;
+  background: url(../img/robot-head.png) no-repeat center;
+  background-size: 100%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  animation: blinking 1s infinite;
+}
+
+.robot .wheel {
+  position: absolute;
+  width: 12px;
+  height: 26px;
+  background: url(../img/wheel-bg.png) repeat-y center -2px;
+  background-size: 100%;
+}
+
+.robot .wheel:first-child {
+  left: 6px;
+  bottom: 4px;
+}
+
+.robot .wheel:last-child {
+  right: 6px;
+  bottom: 4px;
+}
+
+.robot .wheel.forward {
+  animation: forward 1.5s infinite;
+}
+
+.robot .wheel.backward {
+  animation: backward 1.5s infinite;
+}
+
+@keyframes blinking {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes forward {
+  0% { background-position: center -2px; }
+  100% { background-position: center -24px; }
+}
+
+@keyframes backward {
+  0% { background-position: center -24px; }
+  100% { background-position: center -2px; }
+}
+
+@keyframes fadeIn {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.07); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeOut {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.75; }
+  100% { transform: scale(0); opacity: 0; }
+}
+
+@keyframes bounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(2); }
+  100% { transform: scale(1); }
+}

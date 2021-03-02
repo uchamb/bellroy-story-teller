@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bellroy Story Teller</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="score">Score:&nbsp;<span data-prop="score">0</span></div>
+<section class="game-wrapper">
+    <img src="img/final.png" alt="backpack" class="final" />
+
+    <div id="board">
+        <img src="img/logo.png" alt="logo" class="logo">
+
+        <div class="robot">
+            <div class="wheel"></div>
+            <div class="head"></div>
+            <div class="wheel"></div>
+        </div>
+    </div>
+    <div class="arrows">
+        <div><button class="up" data-code="38"></button></div>
+        <button class="left" data-code="37"></button>
+        <button class="down" data-code="40"></button>
+        <button class="right" data-code="39"></button>
+    </div>
+</section>
+
+<script src="js/jquery.js"></script>
+<script src="js/Board.js"></script>
+<script src="js/Robot.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
